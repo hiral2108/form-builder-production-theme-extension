@@ -1,0 +1,972 @@
+/* ==========================================================================
+   1. VARIABLES & CONFIGURATION
+   ========================================================================== */
+:root {
+    --form-bg-color: #ffffff;
+
+    --label-color: #1e293b;
+    --label-font-size: 12px;
+    --label-font-weight: 500;
+
+    --input-width: 100%;
+    --input-bg-color: #ffffff;
+    --input-text-color: #1e293b;
+    --input-border-color: #cccccc;
+    --input-border-width: 1px;
+    --input-border-radius: 4px;
+    --input-border-style: solid;
+    --input-font-size: 14px;
+    --input-font-weight: 400;
+    --input-box-shadow: none;
+    --input-padding-top: 10px;
+    --input-padding-right: 10px;
+    --input-padding-bottom: 10px;
+    --input-padding-left: 10px;
+    --input-margin-top: 0px;
+    --input-margin-right: 0px;
+    --input-margin-bottom: 0px;
+    --input-margin-left: 0px;
+    --input-placeholder-color: #5f6368;
+
+    --button-bg-color: #0d9488;
+    --button-text-color: #ffffff;
+    --button-border-color: #cbd5e1;
+    --button-border-width: 0px;
+    --button-border-radius: 8px;
+    --button-border-style: none;
+    --button-font-size: 14px;
+    --button-font-weight: 500;
+    --button-box-shadow: none;
+    --button-padding-top: 10px;
+    --button-padding-right: 20px;
+    --button-padding-bottom: 10px;
+    --button-padding-left: 20px;
+    --button-margin-top: 10px;
+    --button-margin-right: 0px;
+    --button-margin-bottom: 10px;
+    --button-margin-left: 0px;
+}
+
+/* ==========================================================================
+   2. GLOBAL TYPOGRAPHY & RESET RULES
+   ========================================================================== */
+.gform-wrapper {
+    background-color: var(--form-bg-color);
+}
+
+.gform-wrapper,
+.gform-wrapper * {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+    "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji" !important;
+    box-sizing: border-box !important;
+}
+
+/* ==========================================================================
+   3. FORM LABELS & FIELD TYPOGRAPHY
+   ========================================================================== */
+.gform-wrapper .gform-label,
+.gform-wrapper .input-field label,
+.gform-wrapper .textarea-field label,
+.gform-wrapper .select-field label {
+    display: block !important;
+    width: 100% !important;
+    margin-bottom: 6px !important;
+    color: var(--label-color) !important;
+    font-size: var(--label-font-size) !important;
+    font-weight: var(--label-font-weight) !important;
+}
+
+.gform-wrapper .gform-input,
+.gform-wrapper .input-field input,
+.gform-wrapper .textarea-field textarea,
+.gform-wrapper .custom-select-box {
+    width: var(--input-width) !important;
+    margin: 0 !important;
+    min-height: auto !important;
+    background-color: var(--input-bg-color) !important;
+    color: var(--input-text-color) !important;
+    border-color: var(--input-border-color) !important;
+    border-width: var(--input-border-width) !important;
+    border-radius: var(--input-border-radius) !important;
+    border-style: var(--input-border-style) !important;
+    font-size: var(--input-font-size) !important;
+    font-weight: var(--input-font-weight) !important;
+    box-shadow: var(--input-box-shadow) !important;
+    padding: var(--input-padding-top) var(--input-padding-right) var(--input-padding-bottom) var(--input-padding-left) !important;
+}
+
+.gform-wrapper textarea.gform-input {
+    height: auto !important;
+}
+
+.gform-wrapper .gform-input:focus,
+.gform-wrapper .input-field input:focus,
+.gform-wrapper .textarea-field textarea:focus,
+.gform-wrapper .custom-select-box:focus {
+    outline: none !important;
+}
+
+.gform-wrapper .gform-input::placeholder,
+.gform-wrapper .input-field input::placeholder,
+.gform-wrapper .textarea-field textarea::placeholder {
+    color: var(--input-placeholder-color) !important;
+    font-size: var(--input-font-size) !important;
+    font-weight: var(--input-font-weight) !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+.gform-wrapper .gform-placeholder {
+    color: var(--input-placeholder-color) !important;
+    font-size: var(--input-font-size) !important;
+    font-weight: var(--input-font-weight) !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    display: inline-block;
+}
+
+/* ==========================================================================
+   4. GRID LAYOUT & FIELD GROUP SPACINGS
+   ========================================================================== */
+.gform-wrapper .gform-field-group {
+    width: var(--input-width) !important;
+    margin-top: var(--input-margin-top) !important;
+    margin-bottom: var(--input-margin-bottom) !important;
+}
+
+.gform-wrapper .gform-fields-wrapper {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    padding-left: var(--input-margin-left) !important;
+    padding-right: var(--input-margin-right) !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+}
+
+.gform-wrapper .gform-input-wrap .gform-input,
+.gform-wrapper .gform-input-wrap .gform-grid-wrap {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+.gform-wrapper .grid .input-field,
+.gform-wrapper .grid .input-field input {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+}
+
+/* ==========================================================================
+   5. BUTTONS
+   ========================================================================== */
+.gform-wrapper .gform-submit-btn {
+    background-color: var(--button-bg-color) !important;
+    color: var(--button-text-color) !important;
+    border-color: var(--button-border-color) !important;
+    border-width: var(--button-border-width) !important;
+    border-radius: var(--button-border-radius) !important;
+    border-style: var(--button-border-style) !important;
+    font-size: var(--button-font-size) !important;
+    font-weight: var(--button-font-weight) !important;
+    box-shadow: var(--button-box-shadow) !important;
+    padding: var(--button-padding-top) var(--button-padding-right) var(--button-padding-bottom) var(--button-padding-left) !important;
+    margin: var(--button-margin-top) var(--button-margin-right) var(--button-margin-bottom) var(--button-margin-left) !important;
+    cursor: pointer;
+}
+
+/* ==========================================================================
+   6. LAUNCHER CTA & STICKY BUTTON LAYOUTS
+   ========================================================================== */
+.gform-wrapper .cta-icon-box-wrap {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    cursor: pointer;
+    position: fixed;
+    z-index: 999999;
+    bottom: 24px;
+}
+
+.gform-wrapper .pos-right {
+    right: 24px;
+    left: auto !important;
+    flex-direction: row;
+}
+
+.gform-wrapper .pos-left {
+    left: 24px;
+    right: auto !important;
+    flex-direction: row-reverse;
+}
+
+.gform-wrapper .popup-cta-icon {
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 10px 25px;
+    transition: all 300ms ease;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.gform-wrapper .main-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 2;
+    transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+    opacity: 1;
+    transform: rotate(0deg);
+    pointer-events: auto;
+}
+
+.gform-wrapper .main-icon span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.gform-wrapper .main-icon svg,
+.gform-wrapper .main-icon svg path {
+    width: 100%;
+    height: 100%;
+    fill: currentColor !important;
+}
+
+.gform-wrapper .close-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1;
+    transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+    opacity: 0;
+    transform: rotate(-90deg);
+    pointer-events: none;
+}
+
+.gform-wrapper.active .main-icon {
+    opacity: 0;
+    transform: rotate(90deg);
+    pointer-events: none;
+}
+
+.gform-wrapper.active .close-icon {
+    opacity: 1;
+    transform: rotate(0deg);
+    pointer-events: auto;
+    z-index: 2;
+}
+
+.gform-wrapper.active .popup-cta-icon {
+    animation: none !important;
+}
+
+.gform-wrapper .gform-sticky-btn {
+    position: fixed;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.025em;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999999;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.2s ease;
+    white-space: nowrap;
+}
+
+.gform-wrapper .pos-left-middle,
+.gform-wrapper .pos-left-top,
+.gform-wrapper .pos-left-bottom {
+    left: 0;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(360deg);
+    padding: 18px 16px;
+    border-radius: 0 8px 8px 0;
+}
+
+.gform-wrapper .pos-left-middle { top: 50%; transform: translateY(-50%) rotate(360deg); }
+.gform-wrapper .pos-left-top { top: 24px; }
+.gform-wrapper .pos-left-bottom { bottom: 24px; }
+
+.gform-wrapper .pos-right-middle,
+.gform-wrapper .pos-right-top,
+.gform-wrapper .pos-right-bottom {
+    right: 0;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    padding: 18px 16px;
+    border-radius: 8px 0 0 8px;
+}
+.gform-wrapper .pos-right-middle { top: 50%; transform: translateY(-50%); }
+.gform-wrapper .pos-right-top { top: 24px; }
+.gform-wrapper .pos-right-bottom { bottom: 24px; }
+
+.gform-wrapper .pos-bottom-middle,
+.gform-wrapper .pos-bottom-center,
+.gform-wrapper .pos-bottom-left,
+.gform-wrapper .pos-bottom-right {
+    bottom: 0;
+    padding: 12px 24px;
+    border-radius: 8px 8px 0 0;
+}
+.gform-wrapper .pos-bottom-middle,
+.gform-wrapper .pos-bottom-center { left: 50%; transform: translateX(-50%); }
+.gform-wrapper .pos-bottom-left { left: 24px; }
+.gform-wrapper .pos-bottom-right { right: 24px; }
+
+.gform-cta-widget {
+    background-color: var(--widget-bg-color) !important;
+    width: var(--widget-button-size) !important;
+    height: var(--widget-button-size) !important;
+}
+.gform-cta-widget .icon {
+    color: var(--widget-icon-color) !important;
+}
+.gform-cta-tooltip {
+    background-color: var(--widget-tooltip-bg-color) !important;
+    color: var(--widget-tooltip-text-color) !important;
+}
+
+/* ==========================================================================
+   7. WIDGET LAUNCHER TOOLTIPS
+   ========================================================================== */
+.gform-wrapper .cta-tooltip {
+    position: absolute;
+    z-index: 10;
+    bottom: calc(100% + 4px);
+    visibility: visible;
+    opacity: 1;
+    left: 50%;
+    pointer-events: none;
+    text-decoration: none;
+    min-width: 50px;
+    max-width: 210px;
+    width: max-content;
+    text-align: center;
+    transform: translate(-50%, -5px);
+    border-radius: 12px;
+    box-shadow: 0 2px 5px rgba(52, 52, 52, .15);
+    font-size: 16px;
+    line-height: 1;
+    padding: 12px;
+    font-weight: 600;
+    transition: all .1s ease-in-out;
+}
+
+.gform-wrapper .cta-tooltip .cta-tooltip-text {
+    display: block;
+    white-space: pre-wrap;
+    line-height: 18px;
+}
+
+.gform-wrapper .cta-tooltip:after {
+    content: '';
+    border-style: solid;
+    text-decoration: none;
+    position: absolute;
+    transition: all .1s ease-in-out;
+}
+
+.gform-wrapper [data-tooltip-dir=left] .cta-tooltip {
+    right: calc(100% + 5px);
+    left: auto;
+    bottom: 50%;
+    transform: translate(-10px, 50%);
+}
+
+.gform-wrapper [data-tooltip-dir=left] .cta-tooltip:after {
+    left: calc(100% + 4px);
+    bottom: 50%;
+    border-width: 5px 0px 5px 11px;
+    border-color: transparent transparent transparent var(--tooltip-arrow-color);
+    transform-origin: left;
+    transform: translate(-4px, 50%);
+}
+
+.gform-wrapper [data-tooltip-dir=right] .cta-tooltip {
+    left: calc(100% + 5px);
+    bottom: 50%;
+    transform: translate(10px, 50%);
+}
+
+.gform-wrapper [data-tooltip-dir=right] .cta-tooltip:after {
+    right: calc(100% + 4px);
+    bottom: 50%;
+    border-width: 5px 11px 5px 0px;
+    border-color: transparent var(--tooltip-arrow-color) transparent transparent;
+    transform-origin: right;
+    transform: translate(4px, 50%);
+}
+
+.gform-wrapper.active .cta-tooltip {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+}
+
+/* ==========================================================================
+   8. ATTENTION ANIMATIONS
+   ========================================================================== */
+.gform-wrapper .attention-gelatine { animation: qdp-gelatine 0.5s infinite; }
+@keyframes qdp-gelatine {
+    from, to { transform: scale(1, 1); }
+    25% { transform: scale(0.9, 1.1); }
+    50% { transform: scale(1.1, 0.9); }
+    75% { transform: scale(0.95, 1.05); }
+}
+
+.gform-wrapper .attention-spin { animation: 3s infinite qdp-elastic-spin; }
+@keyframes qdp-elastic-spin {
+    0% { transform: rotate(0); }
+    100%, 25% { transform: rotate(720deg); }
+}
+
+.gform-wrapper .attention-pulse { animation: qdp-pulse 1s infinite ease-in-out alternate; }
+@keyframes qdp-pulse {
+    from { transform: scale(0.8); }
+    to { transform: scale(1.2); }
+}
+
+.gform-wrapper .attention-flash { animation: qdp-flash 500ms ease infinite alternate; }
+@keyframes qdp-flash {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+.gform-wrapper .attention-bounce { animation: qdp-bounce 2s ease infinite; }
+@keyframes qdp-bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-30px); }
+    60% { transform: translateY(-15px); }
+}
+
+.gform-wrapper .attention-swing {
+    transform-origin: top center;
+    animation: qdp-swing 2s ease infinite;
+}
+@keyframes qdp-swing {
+    20% { transform: rotate(15deg); }
+    40% { transform: rotate(-10deg); }
+    60% { transform: rotate(5deg); }
+    80% { transform: rotate(-5deg); }
+    100% { transform: rotate(0deg); }
+}
+
+.gform-wrapper .attention-shake { animation: qdp-shake 3s infinite; }
+@keyframes qdp-shake {
+    20%, 80% { transform: translateX(0); }
+    30%, 50% { transform: translateX(-10px); }
+    40%, 60% { transform: translateX(10px); }
+}
+
+.gform-wrapper .attention-shockwave { animation: qdp-shockwave 3s infinite ease-in-out; }
+@keyframes qdp-shockwave {
+    30%, 50% { transform: rotate(-20deg) scale(1.2); }
+    40% { transform: rotate(20deg) scale(1.2); }
+    40%, 60% { transform: rotate(0deg) scale(1.2); }
+    20%, 80% { transform: scale(1); }
+}
+
+/* ==========================================================================
+   9. POPUP BOX CONTAINER & SCROLLBARS
+   ========================================================================== */
+.gform-wrapper .gform-popup-box {
+    position: fixed;
+    width: auto;
+    min-width: 360px;
+    max-width: 480px;
+    background-color: var(--form-bg-color) !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 16px !important;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !important;
+    box-sizing: border-box;
+    z-index: 999998;
+    overflow-x: auto !important;
+    overflow-y: auto !important;
+    max-height: calc(100vh - var(--widget-button-size) - 56px) !important;
+    scrollbar-width: thin !important;
+    scrollbar-color: #d7d7d7 transparent !important;
+}
+
+.gform-wrapper .gform-popup-box form {
+    display: inline-block !important;
+    min-width: 100% !important;
+}
+
+.gform-wrapper .gform-popup-box::-webkit-scrollbar {
+    width: 8px !important;
+    height: 8px !important;
+}
+
+.gform-wrapper .gform-popup-box::-webkit-scrollbar-track {
+    background: transparent !important;
+}
+
+.gform-wrapper .gform-popup-box::-webkit-scrollbar-thumb {
+    background-color: #d7d7d7 !important;
+    border-radius: 10px !important;
+}
+
+.gform-wrapper.pos-right .gform-popup-box {
+    right: 24px;
+    bottom: calc(var(--widget-button-size) + 32px) !important;
+}
+.gform-wrapper.pos-left .gform-popup-box {
+    left: 24px;
+    bottom: calc(var(--widget-button-size) + 32px) !important;
+}
+.gform-wrapper.pos-sticky-right .gform-popup-box {
+    right: 56px !important;
+}
+.gform-wrapper.pos-sticky-left .gform-popup-box {
+    left: 56px !important;
+}
+
+.gform-wrapper .gform-popup-box.align-middle {
+    top: 50%;
+    --align-y: -50%;
+}
+.gform-wrapper .gform-popup-box.align-top {
+    top: 24px;
+    --align-y: 0%;
+}
+.gform-wrapper .gform-popup-box.align-bottom {
+    bottom: 24px;
+    --align-y: 0%;
+}
+
+.form-slide-box {
+    transition:
+            transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+            opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    --slide-x: 0px;
+    --slide-y: 0px;
+    --align-y: 0%;
+    transform: translate(var(--slide-x), calc(var(--align-y) + var(--slide-y))) translateZ(0);
+    backface-visibility: hidden;
+}
+
+.form-slide-box.form-open {
+    opacity: 1;
+    pointer-events: auto;
+    --slide-x: 0px;
+    --slide-y: 0px;
+}
+
+.form-slide-box.form-closed {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.form-slide-box.slide-right.form-closed {
+    --slide-x: 25px;
+}
+
+.form-slide-box.slide-left.form-closed {
+    --slide-x: -25px;
+}
+
+.form-slide-box.slide-bottom.form-closed {
+    --slide-y: 25px;
+}
+
+/* ==========================================================================
+   10. FORM CONTENT HEADERS & DESCRIPTION
+   ========================================================================== */
+.gform-wrapper .gform-form-title {
+    font-family: inherit;
+    font-weight: 700;
+    line-height: 1.25;
+    margin-top: 0;
+}
+
+.gform-wrapper .gform-form-desc {
+    font-family: inherit;
+    line-height: 1.5;
+    margin-top: 0;
+}
+
+/* ==========================================================================
+   11. OPTION LISTS (RADIOS / CHECKBOXES)
+   ========================================================================== */
+.gform-wrapper .gform-option-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    color: var(--label-color, #1e293b) !important;
+    margin-bottom: 4px;
+    font-weight: 500;
+}
+
+.gform-wrapper .gform-option-label input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    margin: 0;
+    flex-shrink: 0;
+    border: 2px solid #d1d5db !important;
+    border-radius: 50%;
+    background-color: #fff;
+    cursor: pointer;
+    position: relative;
+}
+
+.gform-wrapper .gform-option-label input[type="radio"]::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #d1d5db;
+    transform: translate(-50%, -50%);
+}
+
+.gform-wrapper .gform-option-label input[type="radio"]:checked {
+    border-color: var(--input-text-color, #1e293b) !important;
+}
+
+.gform-wrapper .gform-option-label input[type="radio"]:checked::after {
+    background-color: var(--input-text-color, #1e293b);
+}
+
+.gform-wrapper .gform-option-label input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    margin: 0;
+    flex-shrink: 0;
+    border: 2px solid #d1d5db !important;
+    border-radius: 4px;
+    background-color: #fff;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.15s ease;
+}
+
+.gform-wrapper .gform-option-label input[type="checkbox"]:checked {
+    background-color: var(--input-text-color, #1e293b) !important;
+    border-color: var(--input-text-color, #1e293b) !important;
+}
+
+.gform-wrapper .gform-option-label input[type="checkbox"]:checked::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    transform: translate(-50%, -50%);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 15 14' fill='none'%3E%3Cpath d='M6.05291 8.85505L11.4177 3.48839L12.234 4.31672L6.05291 10.5117L2.34424 6.79005L3.16061 5.97339L6.05291 8.85505Z' fill='white' stroke='white'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.gform-wrapper .gform-options-container {
+    width: 100% !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    padding: 0 !important;
+}
+
+/* ==========================================================================
+   12. HELP ICONS & VIEWPORT TOOLTIPS
+   ========================================================================== */
+.gform-wrapper .gform-help-icon {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #94a3b8;
+    vertical-align: middle;
+}
+
+.gform-wrapper .gform-help-icon:hover {
+    color: #475569;
+}
+
+.gform-fixed-tooltip {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+    "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji" !important;
+    position: fixed !important;
+    max-width: 160px !important;
+    width: max-content !important;
+    background-color: #0f172a !important;
+    color: #ffffff !important;
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    padding: 8px 12px !important;
+    border-radius: 8px !important;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1) !important;
+    text-align: center !important;
+    line-height: 1.625 !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+    z-index: 999999 !important;
+    transform: translate(-50%, -100%) !important;
+    pointer-events: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transition: opacity 0.15s ease-in-out, visibility 0.15s ease-in-out !important;
+}
+
+.gform-fixed-tooltip-arrow {
+    position: absolute !important;
+    top: 100% !important;
+    left: 50%;
+    transform: translateX(-50%) !important;
+    width: 0 !important;
+    height: 0 !important;
+    border-width: 4px !important;
+    border-style: solid !important;
+    border-color: #0f172a transparent transparent transparent !important;
+}
+
+.gform-fixed-tooltip.visible {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* ==========================================================================
+   13. VALIDATION & ERRORS
+   ========================================================================== */
+.gform-wrapper .gform-input.gform-input-error {
+    border-color: #ef4444 !important;
+}
+
+.gform-wrapper .gform-error-msg {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+/* ==========================================================================
+   14. SPECIAL FIELDS CONFIG (PASSWORD, DROPDOWN, MULTISELECT, DATE/TIME)
+   ========================================================================== */
+.gform-wrapper .gform-input-wrap {
+    width: var(--input-width) !important;
+}
+
+.gform-wrapper .gform-input-wrap .gform-input {
+    width: 100% !important;
+}
+
+.gform-wrapper .gform-input-wrap .gform-password-input {
+    padding-right: 36px !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+}
+
+.gform-wrapper .gform-input-wrap .gform-password-input::placeholder {
+    text-overflow: ellipsis !important;
+}
+
+.gform-wrapper .gform-input-wrap .gform-password-input ~ button {
+    left: auto !important;
+    right: 14px !important;
+}
+
+.gform-wrapper .gform-multiselect-trigger span,
+.gform-wrapper .gform-dropdown-trigger span {
+    display: block !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    flex: 1 !important;
+    min-width: 0 !important;
+    text-align: left !important;
+}
+
+.gform-wrapper .gform-multiselect-trigger,
+.gform-wrapper .gform-dropdown-trigger {
+    position: relative !important;
+    padding-right: 36px !important;
+}
+
+.gform-wrapper .gform-multiselect-trigger div,
+.gform-wrapper .gform-dropdown-trigger div {
+    position: absolute !important;
+    right: 14px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+.gform-wrapper input[type="date"]::-webkit-calendar-picker-indicator,
+.gform-wrapper input[type="time"]::-webkit-calendar-picker-indicator {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    opacity: 0 !important;
+    cursor: pointer !important;
+    z-index: 2 !important;
+}
+
+.gform-wrapper input.date-empty::-webkit-datetime-edit {
+    color: transparent !important;
+}
+
+.gform-wrapper input.date-filled::-webkit-datetime-edit,
+.gform-wrapper input:focus::-webkit-datetime-edit {
+    color: var(--input-text-color) !important;
+}
+
+.gform-wrapper .gform-input-wrap input[type="date"] ~ div,
+.gform-wrapper .gform-input-wrap input[type="time"] ~ div {
+    left: auto !important;
+    right: 14px !important;
+}
+
+.gform-wrapper .gform-input-wrap .gform-placeholder {
+    top: var(--input-padding-top) !important;
+    left: var(--input-padding-left) !important;
+    bottom: var(--input-padding-bottom) !important;
+    right: var(--input-padding-right) !important;
+    transform: none !important;
+}
+
+.gform-wrapper .gform-input-wrap input[type="date"],
+.gform-wrapper .gform-input-wrap input[type="time"] {
+    min-height: auto !important;
+    padding-right: 36px !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+}
+
+.gform-wrapper .gform-input-wrap input[type="date"] ~ .gform-placeholder,
+.gform-wrapper .gform-input-wrap input[type="time"] ~ .gform-placeholder {
+    max-width: calc(100% - 48px) !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+}
+
+.gform-wrapper input[type="number"]::-webkit-outer-spin-button,
+.gform-wrapper input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none !important;
+    margin: 0 !important;
+}
+
+.gform-wrapper input[type="number"] {
+    -moz-appearance: textfield !important;
+}
+
+.gform-wrapper input.gform-input {
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+}
+
+/* Styling for success message container */
+.gform-success-message {
+    box-sizing: border-box !important;
+    width: 0 !important;
+    min-width: 100% !important;
+    padding: 0 var(--input-margin-left) 8px !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+}
+
+/* Base layouts for child rich text elements */
+.gform-success-message p {
+    margin: 0 0 6px 0 !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+}
+
+.gform-success-message blockquote {
+    border-left: 3px solid #cbd5e1;
+    padding-left: 10px;
+    margin: 0 0 !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+}
+
+/* Standard link styles inside the success message */
+.gform-success-message a {
+    color: #2563eb !important;
+    text-decoration: underline !important;
+}
+
+/* Quill Editor Alignment Helper Definitions */
+.gform-success-message .ql-align-center {
+    text-align: center !important;
+}
+
+.gform-success-message .ql-align-right {
+    text-align: right !important;
+}
+
+.gform-success-message .ql-align-justify {
+    text-align: justify !important;
+}
+
+.gform-success-message .ql-align-left {
+    text-align: left !important;
+}
+
+/* Spinner Rotation Animation */
+@keyframes gform-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Popup positioning when button is at the bottom */
+.gform-wrapper.pos-sticky-bottom .gform-popup-box {
+    bottom: 56px !important;
+}
+
+.gform-wrapper.pos-sticky-bottom .gform-popup-box.align-left {
+    left: 24px !important;
+}
+
+.gform-wrapper.pos-sticky-bottom .gform-popup-box.align-center {
+    left: 50% !important;
+    transform: translateX(-50%) translate(var(--slide-x), calc(var(--align-y) + var(--slide-y))) !important;
+}
+
+.gform-wrapper.pos-sticky-bottom .gform-popup-box.align-right {
+    right: 24px !important;
+}
