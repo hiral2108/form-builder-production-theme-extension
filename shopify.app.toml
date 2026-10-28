@@ -15,7 +15,7 @@ embedded = true
 
 [access_scopes]
 # Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
-scopes = "read_resource_feedbacks,write_resource_feedbacks,read_script_tags,write_script_tags,read_content,write_content,read_themes,write_themes"
+scopes = "write_resource_feedbacks,read_themes"
 optional_scopes = [ ]
 use_legacy_install_flow = false
 
@@ -27,3 +27,7 @@ redirect_urls = [
 
 [webhooks]
 api_version = "2026-10"
+
+  [[webhooks.subscriptions]]
+  compliance_topics = [ "customers/data_request", "customers/redact", "shop/redact" ]
+  uri = "https://forms.klaxon.app/shopify/webhooks/compliance"
